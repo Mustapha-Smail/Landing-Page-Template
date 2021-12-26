@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="">
+                <img src="logo.png" alt="Logo" class="rotate-scale-down">
+            </a>
+        </div>
+        <div class="navbar-content">
+            <ul class="navbar-links">
+                <li class="navbar-item"><a href="#" class="navbar-item-content">Accueil</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-item-content">A propos</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-item-content">Contact</a></li>
+            </ul>
+        </div> 
+        <div class="navbar-auth">
+            <a href="#" class="auth-btn login">Login</a>
+            <a href="#" class="auth-btn register">Register</a>
+        </div>
+
+        <div class="navbar-mobile">
+            <div class="navbar-mobile-icons">
+                <div class="navbar-mobile-icons-open" id="open" onclick="showMenu()">
+                    <span class="material-icons">
+                        menu
+                    </span>
+                </div>
+                <div class="navbar-mobile-icons-close" id="close" onclick="hideMenu()">
+                    <span class="material-icons">
+                        close
+                    </span>
+                </div>
+            </div>
+            <div class="navbar-mobile-content" id="mobile-content">
+                <ul class="navbar-mobile-links">
+                    <li class="navbar-item"><a href="#" class="navbar-item-content">Accueil</a></li>
+                    <li class="navbar-item"><a href="#" class="navbar-item-content">A propos</a></li>
+                    <li class="navbar-item"><a href="#" class="navbar-item-content">Contact</a></li>
+                </ul>
+                <div class="navbar-mobile-auth" id="mobile-auth">
+                    <a href="#" class="auth-btn login">Login</a>
+                    <a href="#" class="auth-btn register">Register</a>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <script>
+
+        function showMenu(){
+           document.getElementById('mobile-content').style.display = "block";
+           document.getElementById('mobile-auth').style.display = "block";
+           document.getElementById('open').style.display = "none";
+           document.getElementById('close').style.display = "block";
+        }
+
+        function hideMenu(){
+           document.getElementById('mobile-content').style.display = "none";
+           document.getElementById('mobile-auth').style.display = "none";
+           document.getElementById('open').style.display = "block";
+           document.getElementById('close').style.display = "none";
+        }
+
+    </script>
+
+</body>
+</html>
