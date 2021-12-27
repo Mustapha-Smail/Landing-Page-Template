@@ -1,8 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
+:root {
+    --font-family: 'Montserrat',
+    sans-serif;
+
+    --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+    --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+
+    --color-bg: #040C18;
+    --color-footer: #031B34;
+    --color-btn: #EDA205; 
+    --color-nav: #02152B;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 
 a {
     text-decoration: none;
@@ -13,13 +28,9 @@ li {
     list-style: none;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    color: white;
+/* NAVBAR */
 
+.gradient-bar {
     /* ff 3.6+ */
     background:-moz-radial-gradient(circle at 2% 25%, rgba(0, 24, 44, 1) 0%, rgba(15, 62, 88, 1) 100%);
 
@@ -34,7 +45,14 @@ li {
 
     /* global 92%+ browsers support */
     background:radial-gradient(circle at 2% 25%, rgba(0, 24, 44, 1) 0%, rgba(15, 62, 88, 1) 100%);
+}
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: white;
 }
 
 .rotate-scale-down {
@@ -59,6 +77,8 @@ li {
 }
 
 .navbar-item-content {
+    font-family: var(--font-family);
+    font-weight: 400;
     font-size: 24px;
 }
 
@@ -69,19 +89,34 @@ li {
 
 .auth-btn {
     padding: 1rem;
+    font-family: var(--font-family);
+    font-weight: 300;
+    -webkit-transition-property: transform;
+    /* Safari */
+    -webkit-transition-duration: 0.2s;
+    /* Safari */
+    transition-property: transform;
+    transition-duration: 0.2s;
 }
+
+.auth-btn:hover {
+    transform: scale(1.15);
+}
+
 
 .login{
     font-size: 16px; 
 }
 
 .register {
-    background-color: #EDA205;
+    background-color: var(--color-btn);
     border-radius: 7px; 
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-
     text-align: center;
     font-size: 18px;
+}
+
+.register:hover {
+    box-shadow: 0 0 20px 0px rgba(235, 229, 229, 0.35);
 }
 
 
@@ -123,7 +158,7 @@ li {
     top: 40px; 
     border-radius: 7px;
 
-    background-color: #02152B;
+    background-color: var(--color-nav);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 
     display: none;
@@ -140,6 +175,84 @@ li {
     margin-bottom: 1.2rem;
 }
 
+/* MAIN BODY */
+.container {
+    margin: .5rem 1rem;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--color-footer);
+    color: white;
+    font-family: var(--font-family);
+}
+
+.footer {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: start;
+    gap: 2rem; 
+
+    margin-top: 1rem;
+    padding: 1rem;
+
+}
+
+.footer-logo {
+    flex: 0.5; 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-logo a img {
+    width: 4rem;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    font-weight: 300; 
+}
+
+.footer-content {
+    flex: 1; 
+    display: flex; 
+    justify-content: space-evenly;
+    
+}
+
+.footer-links, 
+.footer-quick_access {
+    display: flex; 
+    flex-direction: column;
+    gap: 1rem;  
+}
+
+.copyright {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: .5rem;
+    padding-bottom: .5rem;
+
+    font-size: 12px;
+    font-weight: 200; 
+}
+
+.copyright::before{
+    content: "";
+    height: 1px; 
+    width: 25%;
+    background-color: white;
+}
+
+@media screen and (max-width: 768px){
+    .navbar-item-content {
+        font-size: 20px;
+    }
+}
 
 @media screen and (max-width: 576px) {
 
@@ -155,8 +268,32 @@ li {
         display: none;
     }
 
+    .navbar-item-content {
+        font-size: 18px;
+    }
+
     .navbar-mobile {
         display: block;
+    }
+
+    .auth-btn {
+        padding: .5rem;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo {
+        align-items: center;
+        margin: auto 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 3rem;
+        padding-bottom: 1.5rem
     }
 }
 
