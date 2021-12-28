@@ -1,21 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
 :root {
-    --font-family: 'Montserrat',
-    sans-serif;
+    --font-family: 'Montserrat', sans-serif;
 
     --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
     --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
 
-    --color-bg: #040C18;
+    --color-bg: #00182c;
+    --color-nav: #02152B;
     --color-footer: #031B34;
     --color-btn: #EDA205; 
-    --color-nav: #02152B;
+    --color-text: #fff; 
+
+    /*
+        padding => 3rem PC / 1.5rem Mobile
+    */
+
 }
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body{
+    background-color: var(--color-bg); 
+    color: var(--color-text);
 }
 
 
@@ -28,37 +38,50 @@ li {
     list-style: none;
 }
 
-/* NAVBAR */
+.gradient-text {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} 
 
 .gradient-bar {
-    /* ff 3.6+ */
     background:-moz-radial-gradient(circle at 2% 25%, rgba(0, 24, 44, 1) 0%, rgba(15, 62, 88, 1) 100%);
-
-    /* safari 5.1+,chrome 10+ */
     background:-webkit-radial-gradient(circle at 2% 25%, rgba(0, 24, 44, 1) 0%, rgba(15, 62, 88, 1) 100%);
-
-    /* opera 11.10+ */
     background:-o-radial-gradient(circle at 2% 25%, rgba(0, 24, 44, 1) 0%, rgba(15, 62, 88, 1) 100%);
-
-    /* ie 10+ */
     background:-ms-radial-gradient(circle at 2% 25%, rgba(0, 24, 44, 1) 0%, rgba(15, 62, 88, 1) 100%);
-
     /* global 92%+ browsers support */
     background:radial-gradient(circle at 2% 25%, rgba(0, 24, 44, 1) 0%, rgba(15, 62, 88, 1) 100%);
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    color: white;
+.scale {
+    -webkit-transition-property: transform;
+    /* Safari */
+    -webkit-transition-duration: 0.2s;
+    /* Safari */
+    transition-property: transform;
+    transition-duration: 0.2s;
+}
+
+.scale:hover {
+    transform: scale(0.95);
 }
 
 .rotate-scale-down {
     -webkit-animation: rotate-scale-down 0.65s linear both;
     animation: rotate-scale-down 0.65s linear both;
 }
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    color: var(--color-text);
+}
+
 
 .navbar-logo a {
     width: 100%; 
@@ -78,8 +101,8 @@ li {
 
 .navbar-item-content {
     font-family: var(--font-family);
-    font-weight: 400;
     font-size: 24px;
+    font-weight: 500;
 }
 
 .navbar-auth {
@@ -90,22 +113,7 @@ li {
 .auth-btn {
     padding: 1rem;
     font-family: var(--font-family);
-    font-weight: 300;
 }
-
-.scale {
-    -webkit-transition-property: transform;
-    /* Safari */
-    -webkit-transition-duration: 0.2s;
-    /* Safari */
-    transition-property: transform;
-    transition-duration: 0.2s;
-}
-
-.scale:hover {
-    transform: scale(0.95);
-}
-
 
 .login{
     font-size: 16px; 
@@ -148,32 +156,31 @@ li {
 }
 
 .navbar-mobile-content {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 2rem;
-    min-width: 210px;
-    margin-top: 1rem;
-    
+
     position: absolute;
-    right: 0; 
+    min-width: 250px;
+    margin-top: 1rem;
     margin-right: 5px;
     top: 40px; 
+    right: 0; 
+    
     border-radius: 7px;
-
     background-color: var(--color-nav);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 
-    display: none;
 }
 
 .navbar-mobile-links {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 2rem 0;
+    gap: 2rem;
+    padding: 1.5rem 0;
 }
 
 .navbar-mobile-auth {
@@ -181,15 +188,101 @@ li {
 }
 
 /* MAIN BODY */
-.container {
-    margin: .5rem 1rem;
+.header {
+    padding: 1.5rem 3rem;
+    display: flex; 
+}
+
+.header-content {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    color: var(--color-text);
+    font-family: var(--font-family);
+
+}
+
+
+.header-content h1 {
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 75px;
+    
+}
+
+.header-content p {
+    font-size: 20px;
+    line-height: 28px;
+
+    margin-top: 1.5rem;
+}
+
+.header-content form {
+    display: flex;
+    width: 100%; 
+    margin: 2rem 0;
+}
+
+.header-content form .header-input {
+    flex: 2; 
+    min-height: 4rem;
+
+    padding: 0 1rem;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border: none;
+    outline: none;
+
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 500;
+    
+}
+
+
+.header-content form .header-btn {
+    flex: 0.6; 
+    width: 100%;
+    min-height: 4rem;
+
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border: none;
+    outline: none;
+
+    background-color: var(--color-btn);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+
+.header-image {
+    flex: 1; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%
 }
 
 /* FOOTER */
 footer {
+    display: flex;
+    flex-direction: column; 
+
     background-color: var(--color-footer);
-    color: white;
     font-family: var(--font-family);
+    color: var(--color-text);
 }
 
 .newsletter {
@@ -198,30 +291,31 @@ footer {
     justify-content: center;
     align-items: center;
 
-    gap: 1.2rem;
+    gap: 2rem;
     padding: 2rem; 
 
     width: 50%;
-    margin: auto;
+    margin: 2rem auto;
+    
+    border-radius: 20px;
+
+    background: var(--gradient-bar);
+    color: var(--color-nav);
 
 }
 
 .newsletter p {
-    font-size: 14px; 
-    font-weight: 300;
+    font-size: 18px; 
 }
 
 
 .newsletter form {
     width: 100%;
     display: flex; 
-    justify-content: center;
-    align-items: center;
-    
 }
 
 .newsletter form .newsletter-input {
-    width: 80%;
+    flex: 2;
     min-height: 4rem;
     
     border-top-left-radius: 7px;
@@ -229,7 +323,6 @@ footer {
     border: none; 
     outline: none;
     
-    background-color: rgb(226, 226, 211);
     font-family: var(--font-family);
     font-size: 18px;
     font-weight: 500;
@@ -238,7 +331,8 @@ footer {
 
 
 .newsletter form .newsletter-btn {
-    width: 20%;
+    flex: 0.6; 
+    width: 100%; 
     min-height: 4rem;
     
     border-top-right-radius: 7px;
@@ -246,8 +340,8 @@ footer {
     border: none;
     outline: none;
     
-    background-color: var(--color-btn);
-    color: white;
+    background-color: var(--color-footer);
+    color: var(--color-text);
     font-family: var(--font-family);
     font-size: 18px;
     font-weight: 500;
@@ -263,7 +357,7 @@ footer {
     gap: 2rem; 
 
     margin-top: 1rem;
-    padding: 1rem;
+    padding: 3rem;
 
 }
 
@@ -271,7 +365,7 @@ footer {
     flex: 0.5; 
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .footer-logo a img {
@@ -279,22 +373,20 @@ footer {
 }
 
 .footer-logo p {
-    font-size: 14px;
-    font-weight: 300; 
+    font-size: 16px;
 }
 
 .footer-content {
     flex: 1; 
     display: flex; 
     justify-content: space-evenly;
-    
 }
 
 .footer-links, 
 .footer-quick_access {
     display: flex; 
     flex-direction: column;
-    gap: 1rem;  
+    gap: 2rem;  
 }
 
 .copyright {
@@ -317,6 +409,15 @@ footer {
 }
 
 @media screen and (max-width: 768px){
+    .header{
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .header-content h1 {
+        font-size: 48px;   
+    }
+
     .navbar-item-content {
         font-size: 20px;
     }
@@ -329,10 +430,6 @@ footer {
         font-size: 24px; 
     }
 
-    .newsletter p {
-        font-size: 12px;
-    }
-
     .newsletter form .newsletter-input,
     .newsletter form .newsletter-btn {
         font-size: 14px; 
@@ -342,6 +439,19 @@ footer {
 }
 
 @media screen and (max-width: 576px) {
+    .header-content h1 {
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .header-content p {
+        font-size: 18px;
+        line-height: 24px; 
+    }
+
+    .header-content form .header-input {
+        width: 80%; 
+    }
 
     .navbar{
         justify-content: space-between;
@@ -356,45 +466,60 @@ footer {
     }
 
     .navbar-item-content {
-        font-size: 18px;
+        font-size: 24px;
+        font-weight: 600;
     }
 
     .navbar-mobile {
-        display: block;
+        display: flex;
     }
 
     .auth-btn {
-        padding: .5rem;
+        padding: .8rem;
     }
 
     .newsletter {
-        width: 100%;
+        width: 75%;
     }
 
-    .newsletter p {
-        font-size: 12px;
+    .newsletter h1{
+        font-size: 36px;
+    }
+
+    .newsletter form{
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem; 
     }
 
     .newsletter form .newsletter-input,
     .newsletter form .newsletter-btn {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
+        min-height: 3rem;
+        border-radius: 7px;
+        
+    }
+    
+    .newsletter form .newsletter-btn {
+        width: 50%;
     }
 
     .footer {
         flex-direction: column;
-        align-items: center;
+        margin: 1.5 2rem;
+        padding: 1.5rem;
     }
 
     .footer-logo {
         align-items: center;
-        margin: auto 2rem;
     }
 
     .footer-content {
         flex-direction: column;
-        gap: 3rem;
-        padding-bottom: 1.5rem
+        justify-content: center; 
+        gap: 2rem;
+        padding-bottom: 1.5rem; 
     }
 }
 
